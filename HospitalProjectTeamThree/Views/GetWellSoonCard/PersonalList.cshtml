@@ -1,0 +1,37 @@
+﻿@model HospitalProjectTeamThree.Models.ViewModels.PersonalListGetWell
+<!--using PagedList.Mvc;-->
+@{
+    ViewBag.Title = "PersonalList";
+}
+
+<h2>PersonalList</h2>
+
+<h2>List of Cards</h2>
+<div>
+    <form method="post" action="">
+        <input type="text" name="cardsearch" value="Search" />
+        <input type="submit" value="Search" class="btn btn-info" />
+    </form>
+</div>
+<div class="row">
+    @{
+        foreach (var Card in Model.GetWellSoonCard)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div>Message: @Card.Message</div>
+                <div>To: @Card.PatientName <span>@Card.PatientEmail</span></div>
+                <div>Room Number: @Card.RoomNumber</div>
+                <!--<div>From: Model.UserName</div>-->
+                <div><a href="/GetWellSoonCard/Show/@Card.CardId">Click to see the card</a></div>
+                <div><a href="/GetWellSoonCard/Update/@Card.CardId">Edit the card</a></div>
+            </div>
+        }
+    }
+</div>
+<a href="/GetWellSoonCard/Add">Add a card</a>
+<!--<div>-->
+<!--Display Page 1 of 2-->
+<!--Page (Model.GetWellSoonCard.PageCount < Model.GetWellSoonCard.PageNumber ? 0 : Model.GetWellSoonCard.PageNumber) of Model.GetWellSoonCard.PageCount-->
+<!--Display the link to click on and go to the 2nd page of PERSONAL List-->
+<!--Html.PagedListPager(Model.GetWellSoonCard, page => Url.Action("PersonalList", new { page }))
+</div>-->

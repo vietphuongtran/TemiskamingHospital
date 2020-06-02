@@ -1,0 +1,42 @@
+﻿@model HospitalProjectTeamThree.Models.ViewModels.RoomBookings
+@{
+    ViewBag.Title = "RoomBooking";
+}
+<!--This page allows to make a booking of the previously selected room, using pre-filled information about the logged in user -->
+<div>
+    <a href="/Room/ShowAll">Back to list of all rooms</a>
+</div>
+<h2>RoomBooking</h2>
+
+<form action="/Room/Confirm/@Model.User.Id" method="POST">
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" name="fname" value="@Model.User.FirstName" readonly>
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" name="lname" value="@Model.User.LastName" readonly>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="@Model.User.Email" readonly>
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="email" value="@Model.User.PasswordHash" readonly>
+        <label for="roomselected">Selected Room</label>
+        <input type="text" class="form-control" id="roomselected" name="roomselected" value="@Model.Room.RoomType" readonly>
+        <label for="datefrom">Date From(YYYY-MM-DD):</label>
+        <input type="text" class="form-control" id="datefrom" name="datefrom">
+        <label for="dateto">Date To(YYYY-MM-DD):</label>
+        <input type="text" class="form-control" id="dateto" name="dateto">
+        <input type="hidden" name="roomId" id="roomId" value="@Model.Room.RoomID" />
+        <input type="hidden" name="userid" id="userid" value="@Model.User.Id" />
+
+    </div>
+    <div class="form-group">
+        <label for="payment">Select Your Payment. *Opens and process payment in new window</label>
+        <!--I Assume that when payment processed successfully it returns value "1" -->
+        <select class="form-control" id="payment" name="payment" >
+            <option value="True"><a href="#" target="_blank">PayPal</a></option>
+            <option value="True"><a href="#" target="_blank">FaceBook Money</a></option>
+            <option value="True"><a href="#" target="_blank">Google Money</a></option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

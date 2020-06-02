@@ -1,0 +1,33 @@
+﻿@model List<HospitalProjectTeamThree.Models.Crisis>
+@{
+    ViewBag.Title = "ListAdm";
+}
+
+<!--This is administrative interface, where all possible actions are available-->
+
+<div><a href="/Article/Index">Back to list of All articles</a></div>
+<h2>Crisis Administrator View</h2>
+
+
+
+<div>
+    <a href="/Crisis/Add">Add new Crisis</a>
+ 
+</div>
+<h2>List of All Crises</h2>
+
+@{
+
+
+    foreach (var Crisis in Model)
+    {
+        <p>Crisis Name: <a href="/Crisis/ViewCrisis/@Crisis.CrisisId">@Crisis.CrisisName</a></p>
+        <p>Crisis description: @Crisis.CrisisDesc</p>
+        <p>Crisis Started: @Crisis.CrisisStrated</p>
+        <p>Crisis Finished: @Crisis.CrisisFinished</p>
+        <button><a href="/Crisis/Update/@Crisis.CrisisId">Update</a></button>
+        <button><a href="/Crisis/Delete/@Crisis.CrisisId">Delete</a></button>
+
+        <hr />
+    }
+}

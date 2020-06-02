@@ -1,0 +1,161 @@
+﻿@model PagedList.IPagedList<HospitalProjectTeamThree.Models.OnlineAppointmentBooking>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="btn-floatright">
+    <a href="/OnlineAppointmentBooking/Book" class="btn btn-primary bottom-margin-10" title="Add">Book an Appointment</a>
+</div>
+<h1>Online Appointment</h1>
+<div class="panel panel-primary top">
+    <div class="panel-heading header-color">
+        Appointments
+    </div>
+    <div class="panel-body">
+        <form class="form-inline form-border" method="post" action="/OnlineAppointmentBooking/List">
+            <div class="form-group marginright45">
+                <input type="text" class="form-control" placeholder="Enter Search Keyword" name="SearchText" id="SearchText">
+            </div>
+            <input type="submit" value="Search" class="btn btn-default custom-btn" />
+        </form>
+        <table class="table table-dark top">
+            <thead>
+                <tr>
+                    <!--If Logged in user is admin or Editor then add extra fields-->
+                    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                    {
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Patinet Phonenumber</th>
+                        <th scope="col">Patient Email</th>
+                        <th scope="col">Patient Date Of Birth</th>
+                    }
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Doctor</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Booked On</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var onlineAppointment in Model)
+                    {
+                        <tr>
+                            <!--If Logged in user is admin or Editor then add extra fields-->
+                            @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                            {
+                                <td>
+                                    @onlineAppointment.User.FirstName  @onlineAppointment.User.LastName
+                                </td>
+                                <td>
+                                    @onlineAppointment.User.PhoneNumber
+                                </td>
+                                <td>
+                                    @onlineAppointment.User.Email
+                                </td>
+                                <td>
+                                    @onlineAppointment.PatientDateOfBirth
+                                </td>
+                            }
+                            <td>
+                                @onlineAppointment.PreferredDate.ToString("MM/dd/yyyy")
+                            </td>
+                            <td>
+                                @onlineAppointment.PreferredTime
+                            </td>
+                            <td>
+                                @onlineAppointment.PreferredDoctor
+                            </td>
+                            <td>
+                                @{
+                                    //Change status to name
+                                    var status = Enum.GetName(typeof(HospitalProjectTeamThree.Models.OnlineAppointmentBookingStatus),
+                                        Convert.ToInt32(onlineAppointment.OnlineAppointmentBookingStatus));
+                                    if (status == "InProcess")
+                                    {
+                                        status = "In Process";
+                                    }
+                                }
+                                @status
+                            </td>
+                            <td>
+                                @onlineAppointment.OnlineAppointmentBookingBookedOn.ToString("MM/dd/yyyy HH:mm:ss")
+                            </td>
+                            <td>
+                                <a href="/OnlineAppointmentBooking/View/@onlineAppointment.OnlineAppointmentBookingId" class="btn btn-primary btn-sm" title="View">View</a>
+                            </td>
+                            <!--If Logged in user is Admin or Editor then only can update the details of the Appointment-->
+                            @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                            {
+                                <td>
+                                    <a href="/OnlineAppointmentBooking/Update/@onlineAppointment.OnlineAppointmentBookingId" class="btn btn-primary btn-sm" title="Edit">Edit</a>
+                                </td>
+                            }
+                            <!--If Logged in Registered User then they can only cancel the appointment if the status of the appointment is In process or booked-->
+                            @if (User.IsInRole("Registered User") && (onlineAppointment.OnlineAppointmentBookingStatus == 1 || onlineAppointment.OnlineAppointmentBookingStatus == 2))
+                            {
+                                var myModal = "myModal" + onlineAppointment.OnlineAppointmentBookingId;
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" data-modal-action="openconfimdialog" data-toggle="modal" data-target="#@myModal">
+                                        Cancel Appointment
+                                    </button>
+                                    <div class="modal fade" id="@myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog modal-sm" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to cancel this Appointment?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                    <button type="button" class="btn btn-danger" data-id="@onlineAppointment.OnlineAppointmentBookingId" data-modal-action="yes">
+                                                        Yes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <!--passing page list to the view-->
+        <div>
+            <!--Display the link to click on and go to the 2nd page-->
+            @Html.PagedListPager(@Model, page => Url.Action("List",
+            new { page }))
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        var onlineAppointmentBookingId;
+    $("[data-modal-action=yes]").click(function () {
+        onlineAppointmentBookingId = $(this).attr("data-id");
+        UpdateStatus(onlineAppointmentBookingId)  //calling delete method
+    });
+
+    //Function for update status to cancel
+        function UpdateStatus(onlineAppointmentBookingId) {
+        var postData = {
+            id: onlineAppointmentBookingId
+        };
+         $.ajax({
+                    url: '@Url.Action("UpdateStatus")',
+                    type: 'Get',
+                    data: postData
+                })
+                .done(function() {
+                    location.reload();
+               });
+    }
+    </script>
+}

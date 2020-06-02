@@ -1,0 +1,334 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*Developer : Priyanka Khadilkar*/
+.bottom-margin-10{
+    margin-bottom : 10px;
+}
+
+.deleteicon {
+    color: white;
+    float: right;
+}
+.marginright45 {
+    margin-right: 17px;
+}
+.font-weight500 {
+    font-weight: 100 !important;
+}
+
+.thumbnail {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    min-width: 40%;
+    border-radius: 5px;
+}
+
+.thumbnail-description {
+    min-height: 40px;
+}
+
+.thumbnail:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+}
+
+/*Developer : Alexa Perez*/
+
+#container-bg {
+    background-color: #07407b;
+    color:white;
+    padding:1em;
+    border-radius:20px;
+    max-width:600px;
+
+}
+.title-b{
+    text-transform:uppercase;
+    text-align:center;
+    padding:1em;
+}
+.blog-topic, .blog-topic-div {
+    padding: 0.3em;
+}
+.blog-topic a{
+    color:white;
+}
+.blog-date, .blog-author{
+    float:right;
+}
+.blog-content {
+    text-align: center;
+    text-justify: distribute-all-lines;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.blog-source{
+    float:left;
+}
+.blog-edit {
+   text-align:center;
+   margin-top:2em;
+}
+.btn.btn-spec {
+    background-color: #f7931e;
+    color:white;
+}
+.navbar-inverse {
+    background-color:white;
+    border-color:white !important;
+    clear: right;
+}
+.collapse-spec {
+    background-color: #7fcdee;
+}
+.navbar-inverse a {
+    color: #07407b !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.navbar-nav.spec {
+    background-color: #7fcdee;
+    border-radius:10px;
+    margin-top:2em;
+    margin-bottom:2em;
+    width:100%;
+}
+.navbar-nav.spec li:hover {
+    background-color: #66aecd;
+    border-radius: 10px;
+}
+.dropdown-menu {
+    background-color: #66aecd;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #66aecd;
+}
+
+#hospital__logo {
+    width: 400px;
+    height: auto;
+    margin-left: 20px;
+    padding:1em;
+}
+#hospital__logo_footer {
+    width: 200px;
+    height: auto;
+    margin-left: 20px;
+    padding: 1em;
+}
+.navbar-collapse.collapse.spec{
+    padding:0;
+}
+.btn-floatright {
+    float:right;
+    margin-top:20px;
+}
+.user_greeting a {
+   margin-top:3em !important;
+   clear:both;
+   display:block;
+   padding-right:3em;
+}
+.logoff_btn {
+    float:right;
+    margin-top:-34px;
+    margin-bottom:20px;
+}
+.social_icons {
+    width: 30px;
+    height: auto;
+}
+.smicons-floatright {
+    float: right;
+    margin-top: -3.5em;
+}
+.smicons-floatright img {
+    display: inline !important;
+}
+@media screen and (max-width: 800px) {
+    #org_btns {
+        position: absolute;
+        top: -11px;
+    }
+    #hospital__logo {
+        margin:auto;
+        margin-top:50px;
+    }
+    .dropdown-item {
+        display: block;
+    }
+    .navbar-collapse.spec.collapse.in {
+        width: 400px;
+        padding-left: 3em;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 600px) {
+    #org_btns {
+        position:absolute;
+        top:-11px;
+    }
+    .dropdown-item {
+        display:block;
+    }
+    .navbar-collapse.spec.collapse.in{
+        width:400px;
+        padding-left:3em;
+        margin:auto;
+    }
+}
+/*****************************/
+/*** Vitaliy Bulyma ***/
+/*Styling of "Crisis" Pages*/
+.crisiscenter {
+    text-align: center;
+    padding: 20px;
+}
+
+.right {
+    border: 2px solid black;
+    margin: 2px;
+    width: 30%
+}
+
+.left {
+    width: 20%;
+    /* border-right: 5px solid black; */
+    border-radius: 3px;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.crisismain {
+    padding: 20px 40px;
+    border-left: 5px solid #66aecd;
+    border-radius: 5px;
+    width: 58%;
+    display: inline-block;
+}
+
+
+.right {
+    width: 20%;
+    border-radius: 10px;
+    border: 1px solid #66aecd;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.cred {
+    padding: 10px 20px;
+}
+
+.auth {
+    margin: 10px;
+}
+
+.alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    border: 3px solid red;
+    margin: 10px;
+}
+/*Styling of "Room" Pages*/
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    max-width: 400px;
+    margin: 5px auto;
+}
+
+.thumb {
+    width: 90%;
+    margin: 5px auto;
+    height: 100%;
+}
+
+.desc {
+    text-align: center;
+    margin-top: 10px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+.center {
+    margin: 10px auto;
+}
+/* Selected Room, description, and Account */
+.featured {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card.featured {
+    margin: unset;
+    /* border: 1px solid black; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.roomdesc {
+    display: table-cell;
+    /* border: 1px solid black; */
+    width: 30%;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.profile {
+    /* border: 1px solid black; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+/*****************************/

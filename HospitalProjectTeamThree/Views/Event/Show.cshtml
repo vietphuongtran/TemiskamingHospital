@@ -1,0 +1,115 @@
+﻿@model HospitalProjectTeamThree.Models.Event
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="btn-floatright">
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Event/RegisteredUserList/@Model.EventId" class="btn btn-primary bottom-margin-10" title="View Registered User List">Registered User List</a>
+    }
+    <a href="/Event/List" class="btn btn-primary bottom-margin-10">Back to Event List</a>
+</div>
+<h1>Events</h1>
+<div class="panel panel-primary top">
+    <div class="panel-heading header-color">
+        @Model.EventTitle
+        @if (User.IsInRole("Admin"))
+        {
+            var myModal = "myModal" + Model.EventId;
+            <a href="/Event/Update/@Model.EventId" class="deleteicon marginright45" title="Click to Update"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="#@myModal" class="deleteicon marginright45" data-modal-action="openconfimdialog" data-toggle="modal" data-target="#@myModal"><span class="glyphicon glyphicon-trash"></span></a>
+            <div class="modal fade" id="@myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content" style="color:black">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete event: @Model.EventTitle
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" data-id="@Model.EventId" data-modal-action="yes">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3"><img src="~/Images/Event/@Model.EventImagePath" class="img-responsive" alt="Event picture" width="500" height="600"></div>
+                <div class="col-md-9">
+                    <div>
+                        @Html.Raw(Model.EventDetails)
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Date :</label>
+                            <div class="col-sm-10">
+                                <label class="control-label font-weight500"> @Model.EventStartDate.ToString("MM-dd-yyyy") TO @Model.EventEndDate.ToString("MM-dd-yyyy") </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Time :</label>
+                            <div class="col-sm-10">
+                                <label class="control-label font-weight500"> @Model.EventFromTime To @Model.EventToTime </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Location :</label>
+                            <div class="col-sm-10">
+                                <label class="control-label font-weight500"> @Model.EventLocation </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" style="width:19%;margin-right : -19px;">Target Audience :</label>
+                            <div class="col-sm-9">
+                                <label class="control-label font-weight500"> @Model.EventTargetAudience </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Hosted By :</label>
+                            <div class="col-sm-10">
+                                <label class="control-label font-weight500"> @Model.EventHostedBy </label>
+                            </div>
+                        </div>
+
+                        <a href="/Event/Register/@Model.EventId" class="btn btn-primary btn-sm" title="Edit">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+    var eventId;
+    $("[data-modal-action=yes]").click(function () {
+        eventId = $(this).attr("data-id");
+        deleteEvent(eventId)  //calling delete method
+    });
+
+    //Function for delete event
+        function deleteEvent(eventId) {
+        var postData = {
+            id: eventId
+        };
+         $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'Get',
+                    data: postData
+                })
+                .done(function() {
+                    window.location.href = '/Event/List/';
+               });
+    }
+    </script>
+}
+
+

@@ -1,0 +1,24 @@
+﻿@model HospitalProjectTeamThree.Models.Crisis
+@{
+    ViewBag.Title = "UpdateCrisis";
+}
+<!--When administrator update status of crisis to "Yes", the alert from main page disappears-->
+<h2>UpdateCrisis</h2>
+
+<a href="/Crisis/List">Back to List</a>
+
+<form action="/Crisis/Update/@Model.CrisisId" method="POST">
+
+
+    <h1> Create New Crisis</h1>
+    <div><label for="CrisisName">Enter crisis Name: </label><br />
+    <input id="CrisisName" type="text" name="CrisisName" value="@Model.CrisisName" /></div>
+    <div><label for="CrisisStarted">Crisis Started</label><br />
+    <input id="CrisisStarted" type="text" name="CrisisStarted" value="@Model.CrisisStrated"/></div>
+    <div><label for="CrisisFinished">Crisis Finished [Enter Yes, if Crisis is over]</label><br />
+    <input id="CrisisFinished" type="text" name="CrisisFinished" value="@Model.CrisisFinished" /></div>
+    <div><label for="CrisisDesc">Crisis Description</label><br />
+    <textarea id="CrisisDesc" name="CrisisDesc" rows="4" cols="50">@Model.CrisisDesc</textarea></div>
+    <input type="submit" value="Update Crisis" />
+
+</form>

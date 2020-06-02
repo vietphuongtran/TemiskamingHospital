@@ -1,0 +1,100 @@
+﻿@model PagedList.IPagedList<HospitalProjectTeamThree.Models.Event>
+<!--passing page list to the view-->
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="btn-floatright">
+    @if (Request.IsAuthenticated)
+    {
+        <a href="/Event/RegistrationList" class="btn btn-primary bottom-margin-10" title="Add">Past Event Registration List</a>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Event/Add" class="btn btn-primary bottom-margin-10" title="Add">Add an Event</a>
+    }
+</div>
+<h1>Events</h1>
+<div class="panel panel-primary top">
+    <div class="panel-heading header-color">
+        Events
+    </div>
+    <div class="panel-body">
+        <form class="form-inline form-border" method="post" action="/Event/List">
+            <div class="form-group marginright45">
+                <input type="text" class="form-control" placeholder="Enter Search Keyword" name="SearchText" id="SearchText">
+            </div>
+            <input type="submit" value="Search" class="btn btn-default" />
+        </form>
+        <div>
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-12">
+                <div>
+                    @{
+                        foreach (var eventData in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="thumbnail">
+                                    <div class="caption text-center" onclick="location.href='/Event/Show/@eventData.EventId'">
+                                        <div class="position-relative">
+                                            <img src="~/Images/Event/@eventData.EventImagePath" style="width:72px;height:72px;" />
+                                            <h4 id="thumbnail-label"><a href="/Event/Show/@eventData.EventId" target="_blank">@eventData.EventTitle</a></h4>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <label>Date</label>
+                                                <div>
+                                                    @eventData.EventStartDate.ToString("MM-dd-yyyy") To @eventData.EventEndDate.ToString("MM-dd-yyyy")
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label>Time</label>
+                                                <div>
+                                                    @eventData.EventFromTime To @eventData.EventToTime
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label>Location</label>
+                                                <div>
+                                                    @eventData.EventLocation
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label>Target Audience</label>
+                                                <div>
+                                                    @eventData.EventTargetAudience
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label>Hosted By</label>
+                                                <div>
+                                                    @eventData.EventHostedBy
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="caption card-footer text-center">
+                                        <ul class="list-inline">
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <li><a href="/Event/Update/@eventData.EventId" class="btn btn-primary btn-sm" title="Edit">Edit</a></li>
+                                            }
+                                            <li><a href="/Event/Show/@eventData.EventId" class="btn btn-success btn-sm" title="Edit">View Detail & Register</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <!--passing page list to the view-->
+            <div>
+                <!--Display the link to click on and go to the 2nd page-->
+                @Html.PagedListPager(@Model, page => Url.Action("List",
+                new { page }))
+            </div>
+        </div>
+    </div>
+</div>

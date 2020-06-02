@@ -1,0 +1,31 @@
+﻿@model HospitalProjectTeamThree.Models.ViewModels.ShowCrisis
+@{
+    ViewBag.Title = "ViewCrisis";
+}
+<!--This is administrative interface, where -->
+<a href="/Article/List">Go back to list of all articles</a>
+<br />
+
+<h1 class="crisiscenter">@Model.crises.CrisisName</h1>
+
+@{
+
+    foreach (var Articles in Model.articles)
+    {
+        <p>Article Title: @Articles.ArticleTitle</p>
+        <p>Article Author: @Articles.ArticleAuthor</p>
+        <p>Published on: @Articles.DatePosted</p>
+        <p>@Articles.ArticleContent</p>
+        <hr />
+
+    }
+
+
+}
+<div class="paginate">
+    @{
+        <a href="/Crisis/ViewCrisis/@Model.crises.CrisisId?pagenum=@((int)ViewData["pagenum"]-1)&articlesearchkey=@ViewData["articlesearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Crisis/ViewCrisis/@Model.crises.CrisisId?pagenum=@((int)ViewData["pagenum"]+1)&articlesearchkey=@ViewData["articlesearchkey"]">Next</a>
+    }
+</div>

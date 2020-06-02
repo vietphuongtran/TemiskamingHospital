@@ -1,0 +1,51 @@
+﻿@model List<HospitalProjectTeamThree.Models.Crisis>
+@{
+    ViewBag.Title = "Home Page";
+}
+<!--When Crisis is created word "No" is inserted automatically into crisis database
+    This makes the crisis Active, displaying the link to it on the main page
+    There might be multiple alerts on main page
+    Vitaliy Bulyma
+    -->
+@{
+    foreach (var Crisis in Model)
+    {
+        if (Crisis.CrisisFinished == "No" || Crisis.CrisisFinished == "no" || Crisis.CrisisFinished == "")
+        {
+            <div class="alert">
+                <a href="/Crisis/ViewCrisis/@Crisis.CrisisId">@Crisis.CrisisName</a>
+            </div>
+        }
+    }
+}
+
+
+<div class="jumbotron">
+    <h1>Online Booking Appointments</h1>
+    <p class="lead">Need to book an appointment? Visit our online booking page and find the spot that best suits your needs.</p>
+    <p><a href="/OnlineAppointmentBooking/Book" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Doctor's Blogs</h2>
+        <p>
+            Want to to read about the knowledge of our Doctors Staff not only in the medical field?
+            Read their blog entries and expand your own knowledge!
+        </p>
+        <p><a class="btn btn-default" href="/DoctorsBlog/Index">Read more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get Well Soon Cards</h2>
+        <p>
+            Can't see your friends or beloved one at the hospital?
+            No problem! Please send your best wishes via our online card and leave the delivery to us!
+        </p>
+        <p><a class="btn btn-default" href="/GetWellSoonCard/Index">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Job Listings</h2>
+        <p>Read our job listings and see if there is a position that meets your qualifications.</p>
+        <p><a class="btn btn-default" href="/JobListing/Index">Learn more &raquo;</a></p>
+    </div>
+</div>

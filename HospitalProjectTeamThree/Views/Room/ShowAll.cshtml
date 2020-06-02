@@ -1,0 +1,51 @@
+﻿@model List<HospitalProjectTeamThree.Models.Room>
+@{
+    ViewBag.Title = "ShowAll";
+}
+
+<!--Displays all rooms available in the system
+    
+    Rooms available: Private: 1 bed, Semi-private: 2 beds, Public: 4 beds
+           
+    -->
+<div class="flex-container">
+    @{
+
+
+        foreach (var Room in Model)
+        {
+
+
+            <div class="card">
+                    <div class="thumb">
+
+                        <!--Display appropriate image, for room type-->
+                        @{
+                            switch (@Room.RoomType)
+                            {
+                                case "Private":
+                                    <img src="~/images/Room/private.jpg" alt="">
+                                    break;
+                                case "Semi-private":
+                                    <img src="~/images/Room/semiprivate.jpg" alt="">
+                                    break;
+                                default:
+                                    <img src="~/images/Room/public.jpg" alt="">
+                                    break;
+                            }
+                        }
+
+                                               
+                    </div>
+                <div class="desc"><h2>@Room.RoomType</h2></div>
+                <div class="price center">Price: $@(Room.RoomPrice/100)</div>
+                <p class="center">Must be logged in to register for a room</p>
+                <button><a href="/Room/ShowOne/@Room.RoomID">See Room Details</a></button>
+                <!--<input class="center" type="button" value="See Room Details">-->
+            </div>
+
+
+        }
+    }
+
+</div>

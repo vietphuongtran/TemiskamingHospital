@@ -1,0 +1,1410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0BF1045E-3943-460A-9E96-7D1193C247A2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HospitalProjectTeamThree</RootNamespace>
+    <AssemblyName>HospitalProjectTeamThree</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44325</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BlogTopicController.cs" />
+    <Compile Include="Controllers\CardDesignController.cs" />
+    <Compile Include="Controllers\CrisisController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorsBlogController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\GetWellSoonCardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobListingController.cs" />
+    <Compile Include="Controllers\LiveWaitTimeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedicalStaffDirectoryController.cs" />
+    <Compile Include="Controllers\OnlineAppointmentBookingController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\VolunteerPositionController.cs" />
+    <Compile Include="Data\HospitalProjectTeamThreeContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003271841302_testing.cs" />
+    <Compile Include="Migrations\202003271841302_testing.Designer.cs">
+      <DependentUpon>202003271841302_testing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003281725415_usertable.cs" />
+    <Compile Include="Migrations\202003281725415_usertable.Designer.cs">
+      <DependentUpon>202003281725415_usertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003281753068_role.cs" />
+    <Compile Include="Migrations\202003281753068_role.Designer.cs">
+      <DependentUpon>202003281753068_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003291354268_firstname lastname.cs" />
+    <Compile Include="Migrations\202003291354268_firstname lastname.Designer.cs">
+      <DependentUpon>202003291354268_firstname lastname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003291409451_change register view.cs" />
+    <Compile Include="Migrations\202003291409451_change register view.Designer.cs">
+      <DependentUpon>202003291409451_change register view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003301939381_get well soon card.cs" />
+    <Compile Include="Migrations\202003301939381_get well soon card.Designer.cs">
+      <DependentUpon>202003301939381_get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003301944108_update get well soon card.cs" />
+    <Compile Include="Migrations\202003301944108_update get well soon card.Designer.cs">
+      <DependentUpon>202003301944108_update get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004010314313_fixing bug in application user.cs" />
+    <Compile Include="Migrations\202004010314313_fixing bug in application user.Designer.cs">
+      <DependentUpon>202004010314313_fixing bug in application user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011212193_get well soon card data.cs" />
+    <Compile Include="Migrations\202004011212193_get well soon card data.Designer.cs">
+      <DependentUpon>202004011212193_get well soon card data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011301237_add dummy dât.cs" />
+    <Compile Include="Migrations\202004011301237_add dummy dât.Designer.cs">
+      <DependentUpon>202004011301237_add dummy dât.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011345258_adding card design.cs" />
+    <Compile Include="Migrations\202004011345258_adding card design.Designer.cs">
+      <DependentUpon>202004011345258_adding card design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011403264_changing data type of card design.cs" />
+    <Compile Include="Migrations\202004011403264_changing data type of card design.Designer.cs">
+      <DependentUpon>202004011403264_changing data type of card design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011408497_removing haspic and picext from getwellsoon card.cs" />
+    <Compile Include="Migrations\202004011408497_removing haspic and picext from getwellsoon card.Designer.cs">
+      <DependentUpon>202004011408497_removing haspic and picext from getwellsoon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011513340_testing 01\04.cs" />
+    <Compile Include="Migrations\202004011757038_adding database.cs" />
+    <Compile Include="Migrations\202004011757038_adding database.designer.cs">
+      <DependentUpon>202004011757038_adding database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004012114324_room.cs" />
+    <Compile Include="Migrations\202004012114324_room.designer.cs">
+      <DependentUpon>202004012114324_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004020234168_Resolved Conflict.cs" />
+    <Compile Include="Migrations\202004020234168_Resolved Conflict.designer.cs">
+      <DependentUpon>202004020234168_Resolved Conflict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004020338538_doctorsblog.cs" />
+    <Compile Include="Migrations\202004020338538_doctorsblog.Designer.cs">
+      <DependentUpon>202004020338538_doctorsblog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004020354382_db.cs" />
+    <Compile Include="Migrations\202004020354382_db.Designer.cs">
+      <DependentUpon>202004020354382_db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021148070_adding desgin table.cs" />
+    <Compile Include="Migrations\202004021148070_adding desgin table.designer.cs">
+      <DependentUpon>202004021148070_adding desgin table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021149290_adding relationship design table.cs" />
+    <Compile Include="Migrations\202004021149290_adding relationship design table.designer.cs">
+      <DependentUpon>202004021149290_adding relationship design table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021242074_card design debugging.cs" />
+    <Compile Include="Migrations\202004021242074_card design debugging.designer.cs">
+      <DependentUpon>202004021242074_card design debugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021253515_updating card design name in design table.cs" />
+    <Compile Include="Migrations\202004021253515_updating card design name in design table.designer.cs">
+      <DependentUpon>202004021253515_updating card design name in design table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021327396_adding HasPic into card design.cs" />
+    <Compile Include="Migrations\202004021327396_adding HasPic into card design.designer.cs">
+      <DependentUpon>202004021327396_adding HasPic into card design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021616405_Doctors Table updated.cs" />
+    <Compile Include="Migrations\202004021616405_Doctors Table updated.designer.cs">
+      <DependentUpon>202004021616405_Doctors Table updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021620280_updating docotrs table and topics.cs" />
+    <Compile Include="Migrations\202004021620280_updating docotrs table and topics.designer.cs">
+      <DependentUpon>202004021620280_updating docotrs table and topics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032106431_adding userId in get well soon card.cs" />
+    <Compile Include="Migrations\202004032106431_adding userId in get well soon card.designer.cs">
+      <DependentUpon>202004032106431_adding userId in get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032214467_Live Wait Times and Departments tables.cs" />
+    <Compile Include="Migrations\202004032214467_Live Wait Times and Departments tables.designer.cs">
+      <DependentUpon>202004032214467_Live Wait Times and Departments tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004032313389_crisis.cs" />
+    <Compile Include="Migrations\202004032313389_crisis.designer.cs">
+      <DependentUpon>202004032313389_crisis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040048063_update AddBlogTopic.cs" />
+    <Compile Include="Migrations\202004040048063_update AddBlogTopic.designer.cs">
+      <DependentUpon>202004040048063_update AddBlogTopic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040107468_Resolved Event issue.cs" />
+    <Compile Include="Migrations\202004040107468_Resolved Event issue.designer.cs">
+      <DependentUpon>202004040107468_Resolved Event issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040119156_Removed Event.cs" />
+    <Compile Include="Migrations\202004040119156_Removed Event.designer.cs">
+      <DependentUpon>202004040119156_Removed Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040120519_Re Added Event.cs" />
+    <Compile Include="Migrations\202004040120519_Re Added Event.designer.cs">
+      <DependentUpon>202004040120519_Re Added Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040320468_OnlineAppointmentBooking.cs" />
+    <Compile Include="Migrations\202004040320468_OnlineAppointmentBooking.designer.cs">
+      <DependentUpon>202004040320468_OnlineAppointmentBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004040351527_OnlineAppointmentBooking added.cs" />
+    <Compile Include="Migrations\202004040351527_OnlineAppointmentBooking added.designer.cs">
+      <DependentUpon>202004040351527_OnlineAppointmentBooking added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041431401_viewcrisis viewmodel.cs" />
+    <Compile Include="Migrations\202004041431401_viewcrisis viewmodel.designer.cs">
+      <DependentUpon>202004041431401_viewcrisis viewmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041544593_application user get well soon card.cs" />
+    <Compile Include="Migrations\202004041544593_application user get well soon card.Designer.cs">
+      <DependentUpon>202004041544593_application user get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041612426_getwellsooncard userid.cs" />
+    <Compile Include="Migrations\202004041612426_getwellsooncard userid.Designer.cs">
+      <DependentUpon>202004041612426_getwellsooncard userid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041614068_remove redundant data get well soon card.cs" />
+    <Compile Include="Migrations\202004041614068_remove redundant data get well soon card.Designer.cs">
+      <DependentUpon>202004041614068_remove redundant data get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041620279_application user in get well soon card.cs" />
+    <Compile Include="Migrations\202004041620279_application user in get well soon card.designer.cs">
+      <DependentUpon>202004041620279_application user in get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041626024_fixing bug get well soon card.cs" />
+    <Compile Include="Migrations\202004041626024_fixing bug get well soon card.designer.cs">
+      <DependentUpon>202004041626024_fixing bug get well soon card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004042117198_changing name in role table.cs" />
+    <Compile Include="Migrations\202004042117198_changing name in role table.designer.cs">
+      <DependentUpon>202004042117198_changing name in role table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004042351025_crisis-date.cs" />
+    <Compile Include="Migrations\202004042351025_crisis-date.designer.cs">
+      <DependentUpon>202004042351025_crisis-date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004060053186_jobListing.cs" />
+    <Compile Include="Migrations\202004060053186_jobListing.designer.cs">
+      <DependentUpon>202004060053186_jobListing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004080035582_adding first name last name to user.cs" />
+    <Compile Include="Migrations\202004080035582_adding first name last name to user.designer.cs">
+      <DependentUpon>202004080035582_adding first name last name to user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004081303246_dropping user in get well card.cs" />
+    <Compile Include="Migrations\202004081303246_dropping user in get well card.designer.cs">
+      <DependentUpon>202004081303246_dropping user in get well card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004081306072_adding user to get well.cs" />
+    <Compile Include="Migrations\202004081306072_adding user to get well.designer.cs">
+      <DependentUpon>202004081306072_adding user to get well.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004081949535_adding RoomBooking functionality.cs" />
+    <Compile Include="Migrations\202004081949535_adding RoomBooking functionality.designer.cs">
+      <DependentUpon>202004081949535_adding RoomBooking functionality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004082019326_adding RoomDescription .cs" />
+    <Compile Include="Migrations\202004082019326_adding RoomDescription .designer.cs">
+      <DependentUpon>202004082019326_adding RoomDescription .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004090219251_job listings updated.cs" />
+    <Compile Include="Migrations\202004090219251_job listings updated.designer.cs">
+      <DependentUpon>202004090219251_job listings updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004090354088_joblisting salary chage.cs" />
+    <Compile Include="Migrations\202004090354088_joblisting salary chage.designer.cs">
+      <DependentUpon>202004090354088_joblisting salary chage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004090429020_Updated the data type of OnlineAppointmentBookingStatus.cs" />
+    <Compile Include="Migrations\202004090429020_Updated the data type of OnlineAppointmentBookingStatus.designer.cs">
+      <DependentUpon>202004090429020_Updated the data type of OnlineAppointmentBookingStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004090414287_joblisting published changed.cs" />
+    <Compile Include="Migrations\202004090414287_joblisting published changed.designer.cs">
+      <DependentUpon>202004090414287_joblisting published changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091233591_apply pending change.cs" />
+    <Compile Include="Migrations\202004091233591_apply pending change.designer.cs">
+      <DependentUpon>202004091233591_apply pending change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091247276_remove card desgin.cs" />
+    <Compile Include="Migrations\202004091247276_remove card desgin.designer.cs">
+      <DependentUpon>202004091247276_remove card desgin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091739505_users to doctors table.cs" />
+    <Compile Include="Migrations\202004091739505_users to doctors table.designer.cs">
+      <DependentUpon>202004091739505_users to doctors table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091846024_Removed Event For many to Many.cs" />
+    <Compile Include="Migrations\202004091846024_Removed Event For many to Many.designer.cs">
+      <DependentUpon>202004091846024_Removed Event For many to Many.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091901245_Last time adding Many to Many Events User.cs" />
+    <Compile Include="Migrations\202004091901245_Last time adding Many to Many Events User.designer.cs">
+      <DependentUpon>202004091901245_Last time adding Many to Many Events User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091940131_roombooking.cs" />
+    <Compile Include="Migrations\202004091940131_roombooking.designer.cs">
+      <DependentUpon>202004091940131_roombooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004092039584_Resolved  Event conflict issue.cs" />
+    <Compile Include="Migrations\202004092039584_Resolved  Event conflict issue.designer.cs">
+      <DependentUpon>202004092039584_Resolved  Event conflict issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101430335_roombookings.cs" />
+    <Compile Include="Migrations\202004101430335_roombookings.designer.cs">
+      <DependentUpon>202004101430335_roombookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101435036_roombookinsfixed.cs" />
+    <Compile Include="Migrations\202004101435036_roombookinsfixed.designer.cs">
+      <DependentUpon>202004101435036_roombookinsfixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101746331_Event Title datatype change.cs" />
+    <Compile Include="Migrations\202004101746331_Event Title datatype change.designer.cs">
+      <DependentUpon>202004101746331_Event Title datatype change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101800401_Event Updatedby datatype change.cs" />
+    <Compile Include="Migrations\202004101800401_Event Updatedby datatype change.designer.cs">
+      <DependentUpon>202004101800401_Event Updatedby datatype change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101801561_Event removed Event Time from datatype change.cs" />
+    <Compile Include="Migrations\202004101801561_Event removed Event Time from datatype change.designer.cs">
+      <DependentUpon>202004101801561_Event removed Event Time from datatype change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004102331079_Updated Event Table with time fields.cs" />
+    <Compile Include="Migrations\202004102331079_Updated Event Table with time fields.designer.cs">
+      <DependentUpon>202004102331079_Updated Event Table with time fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004102348417_showbooking.cs" />
+    <Compile Include="Migrations\202004102348417_showbooking.designer.cs">
+      <DependentUpon>202004102348417_showbooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004101730389_volunteer position.cs" />
+    <Compile Include="Migrations\202004101730389_volunteer position.designer.cs">
+      <DependentUpon>202004101730389_volunteer position.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110117264_updates.cs" />
+    <Compile Include="Migrations\202004110117264_updates.designer.cs">
+      <DependentUpon>202004110117264_updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110134578_Live Wait Times table update.cs" />
+    <Compile Include="Migrations\202004110134578_Live Wait Times table update.designer.cs">
+      <DependentUpon>202004110134578_Live Wait Times table update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110406100_Live Wait Times changes.cs" />
+    <Compile Include="Migrations\202004110406100_Live Wait Times changes.designer.cs">
+      <DependentUpon>202004110406100_Live Wait Times changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110039077_PossibleFix.cs" />
+    <Compile Include="Migrations\202004110039077_PossibleFix.designer.cs">
+      <DependentUpon>202004110039077_PossibleFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004120132066_updates1.cs" />
+    <Compile Include="Migrations\202004120132066_updates1.designer.cs">
+      <DependentUpon>202004120132066_updates1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004112352161_latest update.cs" />
+    <Compile Include="Migrations\202004112352161_latest update.designer.cs">
+      <DependentUpon>202004112352161_latest update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004120357574_volunteer position volunteers view.cs" />
+    <Compile Include="Migrations\202004120357574_volunteer position volunteers view.designer.cs">
+      <DependentUpon>202004120357574_volunteer position volunteers view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004132253411_updated live wait times.cs" />
+    <Compile Include="Migrations\202004132253411_updated live wait times.designer.cs">
+      <DependentUpon>202004132253411_updated live wait times.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004140307559_job listing and volunteer position styling.cs" />
+    <Compile Include="Migrations\202004140307559_job listing and volunteer position styling.designer.cs">
+      <DependentUpon>202004140307559_job listing and volunteer position styling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004140339524_Feedback Department Medical staff directory.cs" />
+    <Compile Include="Migrations\202004140339524_Feedback Department Medical staff directory.designer.cs">
+      <DependentUpon>202004140339524_Feedback Department Medical staff directory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\BlogTopic.cs" />
+    <Compile Include="Models\CardDesign.cs" />
+    <Compile Include="Models\EventUser.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\GetWellSoonCard.cs" />
+    <Compile Include="Models\Crisis.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DoctorsBlog.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobListing.cs" />
+    <Compile Include="Models\LiveWaitTime.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MedicalStaffDirectory.cs" />
+    <Compile Include="Models\OnlineAppointmentBooking.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomBooking.cs" />
+    <Compile Include="Models\ViewModels\AddBlogTopic.cs" />
+    <Compile Include="Models\ViewModels\AddGetWellCard.cs" />
+    <Compile Include="Models\ViewModels\AddJobListing.cs" />
+    <Compile Include="Models\ViewModels\AddUpdateMedicalStaffDirectory.cs" />
+    <Compile Include="Models\ViewModels\AddVolunteerPosition.cs" />
+    <Compile Include="Models\ViewModels\DoctorPersonalBlogList.cs" />
+    <Compile Include="Models\ViewModels\FeaturedRoom.cs" />
+    <Compile Include="Models\ViewModels\ListGetWell.cs" />
+    <Compile Include="Models\ViewModels\PersonalListGetWell.cs" />
+    <Compile Include="Models\ViewModels\RegisteredUserList.cs" />
+    <Compile Include="Models\ViewModels\RoomBookings.cs" />
+    <Compile Include="Models\ViewModels\ShowCrisis.cs" />
+    <Compile Include="Models\ViewModels\ShowGetWell.cs" />
+    <Compile Include="Models\ViewModels\ShowJobListing.cs" />
+    <Compile Include="Models\ViewModels\ShowLiveWaitTimes.cs" />
+    <Compile Include="Models\ViewModels\ShowVolunteerPosition.cs" />
+    <Compile Include="Models\ViewModels\UpdateGetWell.cs" />
+    <Compile Include="Models\ViewModels\UpdateJobListing.cs" />
+    <Compile Include="Models\ViewModels\UpdateOnlineAppointmentBookingViewModel.cs" />
+    <Compile Include="Models\ViewModels\UpdateVolunteerPosition.cs" />
+    <Compile Include="Models\VolunteerPosition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap-clockpicker.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="ERD\ERDDoctorsBlog.png" />
+    <Content Include="ERD\ERDLiveWaitTimes.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Logo\facebookicon.png" />
+    <Content Include="Images\Logo\twittericon.png" />
+    <Content Include="Images\Logo\wwwlogo.png" />
+    <Content Include="Images\Logo\youtubeicon.png" />
+    <Content Include="Images\Room\private.jpg" />
+    <Content Include="Images\Room\public.jpg" />
+    <Content Include="Images\Room\semiprivate.jpg" />
+    <Content Include="obj\Debug\HospitalProjectTeamThree.csproj.FileListAbsolute.txt" />
+    <Content Include="Scripts\bootstrap-clockpicker.js" />
+    <Content Include="Scripts\bootstrap-clockpicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ERD\ERDandWireframes_Vitaliy.docx" />
+    <Content Include="ERD\FeedbackAndStaffDirectoryERD.docx" />
+    <Content Include="ERD\HospitalTeam3_CardAndLogin.docx" />
+    <Content Include="ERD\HospitalTeam3_EventCalenderAndOnlineAppointment.docx" />
+    <Content Include="obj\Debug\HospitalProjectTeamThree.csproj.GenerateResource.cache" />
+    <Content Include="obj\Debug\HospitalProjectTeamThree.csprojAssemblyReference.cache" />
+    <Content Include="ERD\Room_Crisis_Vitaliy.docx" />
+    <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="Scripts\ckeditor\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Scripts\ckeditor\README.md" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\ckeditor\adapters\jquery.js" />
+    <Content Include="Scripts\ckeditor\build-config.js" />
+    <Content Include="Scripts\ckeditor\ckeditor.js" />
+    <Content Include="Scripts\ckeditor\config.js" />
+    <Content Include="Scripts\ckeditor\contents.css" />
+    <Content Include="Scripts\ckeditor\lang\af.js" />
+    <Content Include="Scripts\ckeditor\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\lang\az.js" />
+    <Content Include="Scripts\ckeditor\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\lang\bn.js" />
+    <Content Include="Scripts\ckeditor\lang\bs.js" />
+    <Content Include="Scripts\ckeditor\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\lang\da.js" />
+    <Content Include="Scripts\ckeditor\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\lang\de.js" />
+    <Content Include="Scripts\ckeditor\lang\el.js" />
+    <Content Include="Scripts\ckeditor\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\lang\en.js" />
+    <Content Include="Scripts\ckeditor\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\lang\es.js" />
+    <Content Include="Scripts\ckeditor\lang\et.js" />
+    <Content Include="Scripts\ckeditor\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\lang\he.js" />
+    <Content Include="Scripts\ckeditor\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\lang\id.js" />
+    <Content Include="Scripts\ckeditor\lang\is.js" />
+    <Content Include="Scripts\ckeditor\lang\it.js" />
+    <Content Include="Scripts\ckeditor\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\lang\ka.js" />
+    <Content Include="Scripts\ckeditor\lang\km.js" />
+    <Content Include="Scripts\ckeditor\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\lang\ms.js" />
+    <Content Include="Scripts\ckeditor\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\lang\no.js" />
+    <Content Include="Scripts\ckeditor\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\lang\si.js" />
+    <Content Include="Scripts\ckeditor\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\lang\th.js" />
+    <Content Include="Scripts\ckeditor\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Scripts\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\icons.png" />
+    <Content Include="Scripts\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Scripts\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastetools\filter\common.js" />
+    <Content Include="Scripts\ckeditor\plugins\pastetools\filter\image.js" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Scripts\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="Scripts\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Scripts\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Scripts\ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
+    <Content Include="Scripts\ckeditor\samples\css\samples.css" />
+    <Content Include="Scripts\ckeditor\samples\img\github-top.png" />
+    <Content Include="Scripts\ckeditor\samples\img\header-bg.png" />
+    <Content Include="Scripts\ckeditor\samples\img\header-separator.png" />
+    <Content Include="Scripts\ckeditor\samples\img\logo.png" />
+    <Content Include="Scripts\ckeditor\samples\img\logo.svg" />
+    <Content Include="Scripts\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="Scripts\ckeditor\samples\index.html" />
+    <Content Include="Scripts\ckeditor\samples\js\sample.js" />
+    <Content Include="Scripts\ckeditor\samples\js\sf.js" />
+    <Content Include="Scripts\ckeditor\samples\old\ajax.html" />
+    <Content Include="Scripts\ckeditor\samples\old\api.html" />
+    <Content Include="Scripts\ckeditor\samples\old\appendto.html" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Scripts\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="Scripts\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Scripts\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="Scripts\ckeditor\samples\old\divreplace.html" />
+    <Content Include="Scripts\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\outputforflash.html" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <Content Include="Scripts\ckeditor\samples\old\index.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlineall.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="Scripts\ckeditor\samples\old\jquery.html" />
+    <Content Include="Scripts\ckeditor\samples\old\magicline\magicline.html" />
+    <Content Include="Scripts\ckeditor\samples\old\readonly.html" />
+    <Content Include="Scripts\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="Scripts\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="Scripts\ckeditor\samples\old\sample.css" />
+    <Content Include="Scripts\ckeditor\samples\old\sample.js" />
+    <Content Include="Scripts\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="Scripts\ckeditor\samples\old\tabindex.html" />
+    <Content Include="Scripts\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Scripts\ckeditor\samples\old\uicolor.html" />
+    <Content Include="Scripts\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="Scripts\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Scripts\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\ckeditor\vendor\promise.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Role\List.cshtml" />
+    <Content Include="Views\Role\Add.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Show.cshtml" />
+    <Content Include="Views\Role\DeleteConfirmed.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Account\AdminRegister.cshtml" />
+    <Content Include="Views\GetWellSoonCard\Add.cshtml" />
+    <Content Include="Views\GetWellSoonCard\List.cshtml" />
+    <Content Include="Views\GetWellSoonCard\Show.cshtml" />
+    <Content Include="Views\GetWellSoonCard\Update.cshtml" />
+    <Content Include="Views\GetWellSoonCard\Index.cshtml" />
+    <Content Include="Wireframes\Job Listing .pdf" />
+    <Content Include="Wireframes\LoginCardWireframe.pptx" />
+    <Content Include="Wireframes\Volunteer Sign Up.pdf" />
+    <Content Include="Views\Room\ShowAll.cshtml" />
+    <Content Include="Views\Article\ViewArticle.cshtml" />
+    <Content Include="Views\Article\List.cshtml" />
+    <Content Include="Views\Article\Add.cshtml" />
+    <Content Include="Views\Crisis\Add.cshtml" />
+    <Content Include="Views\Crisis\Update.cshtml" />
+    <Content Include="Views\Crisis\Delete.cshtml" />
+    <Content Include="Views\DoctorsBlog\Add.cshtml" />
+    <Content Include="Views\DoctorsBlog\List.cshtml" />
+    <Content Include="Views\DoctorsBlog\Show.cshtml" />
+    <Content Include="Views\DoctorsBlog\Update.cshtml" />
+    <Content Include="Views\GetWellSoonCard\Delete.cshtml" />
+    <Content Include="Views\CardDesign\List.cshtml" />
+    <Content Include="Views\CardDesign\Add.cshtml" />
+    <Content Include="Views\CardDesign\Show.cshtml" />
+    <Content Include="Views\CardDesign\Update.cshtml" />
+    <Content Include="Views\CardDesign\Delete.cshtml" />
+    <Content Include="Views\BlogTopic\List.cshtml" />
+    <Content Include="Views\Crisis\List.cshtml" />
+    <Content Include="Views\Crisis\ViewCrisis.cshtml" />
+    <Content Include="Views\DoctorsBlog\Delete.cshtml" />
+    <Content Include="Views\JobListing\List.cshtml" />
+    <Content Include="Views\JobListing\Add.cshtml" />
+    <Content Include="Views\JobListing\Delete.cshtml" />
+    <Content Include="Views\JobListing\Index.cshtml" />
+    <Content Include="Views\JobListing\Show.cshtml" />
+    <Content Include="Views\JobListing\Update.cshtml" />
+    <Content Include="Views\Room\ShowOne.cshtml" />
+    <Content Include="Views\Room\AdminView.cshtml" />
+    <Content Include="Views\Article\Update.cshtml" />
+    <Content Include="Views\Article\Delete.cshtml" />
+    <Content Include="Views\GetWellSoonCard\PersonalList.cshtml" />
+    <Content Include="Views\OnlineAppointmentBooking\Book.cshtml" />
+    <Content Include="Views\OnlineAppointmentBooking\List.cshtml" />
+    <Content Include="Views\OnlineAppointmentBooking\Update.cshtml" />
+    <Content Include="Views\BlogTopic\Add.cshtml" />
+    <Content Include="Views\BlogTopic\Update.cshtml" />
+    <Content Include="Views\DoctorsBlog\DoctorPersonalList.cshtml" />
+    <Content Include="Views\DoctorsBlog\Index.cshtml" />
+    <Content Include="Views\DoctorsBlog\PublicList.cshtml" />
+    <Content Include="Views\DoctorsBlog\PublicShow.cshtml" />
+    <Content Include="Views\Crisis\Index.cshtml" />
+    <Content Include="Views\Crisis\ListAdm.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\ListAdm.cshtml" />
+    <Content Include="Views\Event\Add.cshtml" />
+    <Content Include="Views\OnlineAppointmentBooking\View.cshtml" />
+    <Content Include="Views\Room\RoomBooking.cshtml" />
+    <Content Include="Views\BlogTopic\PublicList.cshtml" />
+    <Content Include="Views\BlogTopic\Delete.cshtml" />
+    <Content Include="Views\BlogTopic\Show.cshtml" />
+    <Content Include="Views\BlogTopic\PublicShow.cshtml" />
+    <Content Include="Views\Room\Confirm.cshtml" />
+    <Content Include="Views\Event\List.cshtml" />
+    <Content Include="Views\Event\Show.cshtml" />
+    <Content Include="Views\Event\Update.cshtml" />
+    <Content Include="Views\VolunteerPosition\Add.cshtml" />
+    <Content Include="Views\VolunteerPosition\List.cshtml" />
+    <Content Include="Views\VolunteerPosition\Show.cshtml" />
+    <Content Include="Views\VolunteerPosition\Update.cshtml" />
+    <Content Include="Views\VolunteerPosition\Delete.cshtml" />
+    <Content Include="Views\LiveWaitTime\Add.cshtml" />
+    <Content Include="Views\LiveWaitTime\Delete.cshtml" />
+    <Content Include="Views\LiveWaitTime\List.cshtml" />
+    <Content Include="Views\LiveWaitTime\PublicList.cshtml" />
+    <Content Include="Views\LiveWaitTime\PublicShow.cshtml" />
+    <Content Include="Views\LiveWaitTime\Show.cshtml" />
+    <Content Include="Views\LiveWaitTime\Update.cshtml" />
+    <Content Include="Views\LiveWaitTime\Index.cshtml" />
+    <Content Include="Views\Event\RegistrationList.cshtml" />
+    <Content Include="Views\Event\RegisteredUserList.cshtml" />
+    <Content Include="Views\Feedback\Add.cshtml" />
+    <Content Include="Views\Feedback\Delete.cshtml" />
+    <Content Include="Views\Feedback\List.cshtml" />
+    <Content Include="Views\Feedback\Show.cshtml" />
+    <Content Include="Views\MedicalStaffDirectory\Add.cshtml" />
+    <Content Include="Views\MedicalStaffDirectory\List.cshtml" />
+    <Content Include="Views\Department\Add.cshtml" />
+    <Content Include="Views\Department\List.cshtml" />
+    <Content Include="Views\Department\Update.cshtml" />
+    <Content Include="Views\MedicalStaffDirectory\Update.cshtml" />
+    <Content Include="Views\MedicalStaffDirectory\Delete.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\Event\" />
+    <Folder Include="Images\GetWellCard\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003271841302_testing.resx">
+      <DependentUpon>202003271841302_testing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003281725415_usertable.resx">
+      <DependentUpon>202003281725415_usertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003281753068_role.resx">
+      <DependentUpon>202003281753068_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003291354268_firstname lastname.resx">
+      <DependentUpon>202003291354268_firstname lastname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003291409451_change register view.resx">
+      <DependentUpon>202003291409451_change register view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003301939381_get well soon card.resx">
+      <DependentUpon>202003301939381_get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003301944108_update get well soon card.resx">
+      <DependentUpon>202003301944108_update get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004010314313_fixing bug in application user.resx">
+      <DependentUpon>202004010314313_fixing bug in application user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011212193_get well soon card data.resx">
+      <DependentUpon>202004011212193_get well soon card data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011301237_add dummy dât.resx">
+      <DependentUpon>202004011301237_add dummy dât.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011345258_adding card design.resx">
+      <DependentUpon>202004011345258_adding card design.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011403264_changing data type of card design.resx">
+      <DependentUpon>202004011403264_changing data type of card design.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011408497_removing haspic and picext from getwellsoon card.resx">
+      <DependentUpon>202004011408497_removing haspic and picext from getwellsoon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011757038_adding database.resx">
+      <DependentUpon>202004011757038_adding database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004012114324_room.resx">
+      <DependentUpon>202004012114324_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020234168_Resolved Conflict.resx">
+      <DependentUpon>202004020234168_Resolved Conflict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020338538_doctorsblog.resx">
+      <DependentUpon>202004020338538_doctorsblog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020354382_db.resx">
+      <DependentUpon>202004020354382_db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021148070_adding desgin table.resx">
+      <DependentUpon>202004021148070_adding desgin table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021149290_adding relationship design table.resx">
+      <DependentUpon>202004021149290_adding relationship design table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021242074_card design debugging.resx">
+      <DependentUpon>202004021242074_card design debugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021253515_updating card design name in design table.resx">
+      <DependentUpon>202004021253515_updating card design name in design table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021327396_adding HasPic into card design.resx">
+      <DependentUpon>202004021327396_adding HasPic into card design.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021616405_Doctors Table updated.resx">
+      <DependentUpon>202004021616405_Doctors Table updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021620280_updating docotrs table and topics.resx">
+      <DependentUpon>202004021620280_updating docotrs table and topics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032106431_adding userId in get well soon card.resx">
+      <DependentUpon>202004032106431_adding userId in get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032214467_Live Wait Times and Departments tables.resx">
+      <DependentUpon>202004032214467_Live Wait Times and Departments tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004032313389_crisis.resx">
+      <DependentUpon>202004032313389_crisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040048063_update AddBlogTopic.resx">
+      <DependentUpon>202004040048063_update AddBlogTopic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040107468_Resolved Event issue.resx">
+      <DependentUpon>202004040107468_Resolved Event issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040119156_Removed Event.resx">
+      <DependentUpon>202004040119156_Removed Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040120519_Re Added Event.resx">
+      <DependentUpon>202004040120519_Re Added Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040320468_OnlineAppointmentBooking.resx">
+      <DependentUpon>202004040320468_OnlineAppointmentBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004040351527_OnlineAppointmentBooking added.resx">
+      <DependentUpon>202004040351527_OnlineAppointmentBooking added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041431401_viewcrisis viewmodel.resx">
+      <DependentUpon>202004041431401_viewcrisis viewmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041544593_application user get well soon card.resx">
+      <DependentUpon>202004041544593_application user get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041612426_getwellsooncard userid.resx">
+      <DependentUpon>202004041612426_getwellsooncard userid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041614068_remove redundant data get well soon card.resx">
+      <DependentUpon>202004041614068_remove redundant data get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041620279_application user in get well soon card.resx">
+      <DependentUpon>202004041620279_application user in get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041626024_fixing bug get well soon card.resx">
+      <DependentUpon>202004041626024_fixing bug get well soon card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004042117198_changing name in role table.resx">
+      <DependentUpon>202004042117198_changing name in role table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004042351025_crisis-date.resx">
+      <DependentUpon>202004042351025_crisis-date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004060053186_jobListing.resx">
+      <DependentUpon>202004060053186_jobListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004080035582_adding first name last name to user.resx">
+      <DependentUpon>202004080035582_adding first name last name to user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004081303246_dropping user in get well card.resx">
+      <DependentUpon>202004081303246_dropping user in get well card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004081306072_adding user to get well.resx">
+      <DependentUpon>202004081306072_adding user to get well.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004081949535_adding RoomBooking functionality.resx">
+      <DependentUpon>202004081949535_adding RoomBooking functionality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004082019326_adding RoomDescription .resx">
+      <DependentUpon>202004082019326_adding RoomDescription .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004090219251_job listings updated.resx">
+      <DependentUpon>202004090219251_job listings updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004090354088_joblisting salary chage.resx">
+      <DependentUpon>202004090354088_joblisting salary chage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004090414287_joblisting published changed.resx">
+      <DependentUpon>202004090414287_joblisting published changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004090429020_Updated the data type of OnlineAppointmentBookingStatus.resx">
+      <DependentUpon>202004090429020_Updated the data type of OnlineAppointmentBookingStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091233591_apply pending change.resx">
+      <DependentUpon>202004091233591_apply pending change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091247276_remove card desgin.resx">
+      <DependentUpon>202004091247276_remove card desgin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091739505_users to doctors table.resx">
+      <DependentUpon>202004091739505_users to doctors table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091846024_Removed Event For many to Many.resx">
+      <DependentUpon>202004091846024_Removed Event For many to Many.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091901245_Last time adding Many to Many Events User.resx">
+      <DependentUpon>202004091901245_Last time adding Many to Many Events User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091940131_roombooking.resx">
+      <DependentUpon>202004091940131_roombooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004092039584_Resolved  Event conflict issue.resx">
+      <DependentUpon>202004092039584_Resolved  Event conflict issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101430335_roombookings.resx">
+      <DependentUpon>202004101430335_roombookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101435036_roombookinsfixed.resx">
+      <DependentUpon>202004101435036_roombookinsfixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101746331_Event Title datatype change.resx">
+      <DependentUpon>202004101746331_Event Title datatype change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101800401_Event Updatedby datatype change.resx">
+      <DependentUpon>202004101800401_Event Updatedby datatype change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101801561_Event removed Event Time from datatype change.resx">
+      <DependentUpon>202004101801561_Event removed Event Time from datatype change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004102331079_Updated Event Table with time fields.resx">
+      <DependentUpon>202004102331079_Updated Event Table with time fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004102348417_showbooking.resx">
+      <DependentUpon>202004102348417_showbooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101730389_volunteer position.resx">
+      <DependentUpon>202004101730389_volunteer position.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110117264_updates.resx">
+      <DependentUpon>202004110117264_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110134578_Live Wait Times table update.resx">
+      <DependentUpon>202004110134578_Live Wait Times table update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110406100_Live Wait Times changes.resx">
+      <DependentUpon>202004110406100_Live Wait Times changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110039077_PossibleFix.resx">
+      <DependentUpon>202004110039077_PossibleFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004120132066_updates1.resx">
+      <DependentUpon>202004120132066_updates1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004112352161_latest update.resx">
+      <DependentUpon>202004112352161_latest update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004120357574_volunteer position volunteers view.resx">
+      <DependentUpon>202004120357574_volunteer position volunteers view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004132253411_updated live wait times.resx">
+      <DependentUpon>202004132253411_updated live wait times.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004140307559_job listing and volunteer position styling.resx">
+      <DependentUpon>202004140307559_job listing and volunteer position styling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004140339524_Feedback Department Medical staff directory.resx">
+      <DependentUpon>202004140339524_Feedback Department Medical staff directory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.adddummydât.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.addingcarddesign.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.changeregisterview.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.changingdatatypeofcarddesign.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.firstnamelastname.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.fixingbuginapplicationuser.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.getwellsooncard.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.getwellsooncarddata.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.removinghaspicandpicextfromgetwellsooncard.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.role.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.testing.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.updategetwellsooncard.resources" />
+    <EmbeddedResource Include="obj\Debug\HospitalProjectTeamThree.Migrations.usertable.resources" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61530</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44325/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
