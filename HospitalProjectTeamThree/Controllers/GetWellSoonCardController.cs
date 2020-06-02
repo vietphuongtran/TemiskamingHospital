@@ -105,24 +105,12 @@ namespace HospitalProjectTeamThree.Controllers
             //passing the pagelist to the view
             return View(GetWellSoonCards.ToPagedList(pageNumber, pageSize));*/
         }
-        //Problem: Pagination doesn't work with viewmodel using the same technique above 
-        public ActionResult PersonalList(/*int? pagenum, string currentFilter,*/ string cardsearch)
+        public ActionResult PersonalList(string cardsearch)
         {
 
             //get the current user id when they logged in
             string userId = User.Identity.GetUserId();
-
             ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == userId);
-            /*if (cardsearch != null)
-            {
-                //reset the page to 1 if there is a result in the search
-                page = 1;
-            }
-            else
-            {
-                //maintain the filter setting during paging
-                cardsearch = currentFilter;
-            }*/
 
             //ViewBag.CurrentFilter = cardsearch;
             if (cardsearch != null && cardsearch != "")

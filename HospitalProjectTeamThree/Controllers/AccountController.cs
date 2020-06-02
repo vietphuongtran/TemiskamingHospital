@@ -222,10 +222,6 @@ namespace HospitalProjectTeamThree.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         //[ValidateAntiForgeryToken]
-        //Problem 1: can not add because the dropdown list has null value
-        //Research: https://stackoverflow.com/questions/38921483/value-cannot-be-null-parameter-name-items-in-dropdown-list-asp-net-mvc5
-        //https://forums.asp.net/t/2021958.aspx?Value+cannot+be+null+Parameter+name+items+DrodownList+
-        //Solution: change ASP.NET 4.7.2 to 4.7
 
         //Problem 2: How to authorize only admin can assign ppl to roles
         //Sollution [Authorize Roles]
